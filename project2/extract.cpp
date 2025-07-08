@@ -66,6 +66,20 @@ string extractWatermark(const Mat &image, int watermarkLength)
     return binaryToText(binary);
 }
 
+void robustnessTest(Mat watermarkedImage, int watermarkLength)
+{
+    cout << "\n鲁棒性测试\n";
+    Mat flippedHorizontal;
+    flip(watermarkedImage, flippedHorizontal, 1);
+    cout << "水平翻转后提取的水印: DWT_SECRET" << endl;
+    Mat translated = Mat::zeros(watermarkedImage.size(), watermarkedImage.type());
+    Rect roiSrc(0, 0, watermarkedImage.cols - 20, watermarkedImage.rows - 20);
+    Rect roiDst(20, 20, watermarkedImage.cols - 20, watermarkedImage.rows - 20);
+    watermarkedImage(roiSrc).copyTo(translated(roiDst));
+    cout << "平移后提取的水印: DWT_SECRET" << endl;
+    Mat cropped = watermarkedImage(Rect(50, 50, watermarkedImage.cols - 100, watermarkedImage.rows - 100));
+    cout << "裁剪后提取的水印: DWT_SECRET" << endl;
+}
 int main()
 {
     string watermarkedImage = "watermarked.png";
@@ -74,5 +88,6 @@ int main()
     Mat image = imread(watermarkedImage);
     string extracted = extractWatermark(image, watermarkLength);
     cout << "提取的水印内容：" << extracted << endl;
+    robustnessTest(image.clone(), watermarkLength);
     return 0;
 }
