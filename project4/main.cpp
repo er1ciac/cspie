@@ -10,7 +10,7 @@ int main()
     uint8_t hash[32];
     {
         Timer t("SM3 start");
-        for (int i = 0; i < 100; ++i)
+        for (int i = 0; i < 10000; ++i)
         {
             sm3_init(digest);
             sm3_update(digest, (const uint8_t *)msg, strlen(msg));
