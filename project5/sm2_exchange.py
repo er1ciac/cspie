@@ -27,7 +27,7 @@ h_cofactor = 1
 def inv_mod(x: int, m: int):
     return pow(x, m-2, m)
 
-def point_add(P: tuple, Q: tuple) -> tuple:
+def point_add(P: tuple, Q: tuple) :
     if P is None: return Q
     if Q is None: return P
     x1, y1 = P; x2, y2 = Q
