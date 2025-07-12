@@ -32,11 +32,12 @@ static uint32_t GG(uint32_t x, uint32_t y, uint32_t z, int j)
     return (j < 16) ? (x ^ y ^ z) : ((x & y) | (~x & z));
 }
 
-static const uint32_t T[64] = {
+static uint32_t T[64] = {
     0x79cc4519, 0x79cc4519, 0x79cc4519, 0x79cc4519,
     0x79cc4519, 0x79cc4519, 0x79cc4519, 0x79cc4519,
     0x79cc4519, 0x79cc4519, 0x79cc4519, 0x79cc4519,
     0x79cc4519, 0x79cc4519, 0x79cc4519, 0x79cc4519,
+    0x7a879d8a, 0x7a879d8a, 0x7a879d8a, 0x7a879d8a,
     0x7a879d8a, 0x7a879d8a, 0x7a879d8a, 0x7a879d8a,
     0x7a879d8a, 0x7a879d8a, 0x7a879d8a, 0x7a879d8a,
     0x7a879d8a, 0x7a879d8a, 0x7a879d8a, 0x7a879d8a,
@@ -48,7 +49,6 @@ static const uint32_t T[64] = {
     0x7a879d8a, 0x7a879d8a, 0x7a879d8a, 0x7a879d8a,
     0x7a879d8a, 0x7a879d8a, 0x7a879d8a, 0x7a879d8a,
     0x7a879d8a, 0x7a879d8a, 0x7a879d8a, 0x7a879d8a};
-
 static void sm3_compress(uint32_t V[8], const uint8_t block[64])
 {
     uint32_t W[68], W1[64];
