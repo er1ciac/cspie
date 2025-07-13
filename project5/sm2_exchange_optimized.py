@@ -24,8 +24,16 @@ Gy = 0xBC3736A2F4F6779C59BDCEE36B692153D0A9877CC62A474002DF32E52139F0A0
 G = (Gx, Gy)
 h_cofactor = 1 
 
-def inv_mod(x: int, m: int):
-    return pow(x, m-2, m)
+def inv_mod(x: int, m: int) :
+    a, b = m, x % m
+    u0, u1 = 0, 1
+
+    while b != 0:
+        q = a // b
+        a, b = b, a - q * b
+        u0, u1 = u1, u0 - q * u1
+
+    return u0 % m
 
 def point_add(P: tuple, Q: tuple) :
     if P is None: return Q
