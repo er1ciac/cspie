@@ -16,8 +16,17 @@ Gx = 0x32C4AE2C1F1981195F9904466A39C9948FE30BBFF2660BE1715A4589334C74C7
 Gy = 0xBC3736A2F4F6779C59BDCEE36B692153D0A9877CC62A474002DF32E52139F0A0
 G = (Gx, Gy)
 
+#快速扩展欧几里得算法
 def inv_mod(x: int, m: int) :
-    return pow(x, m - 2, m)
+    a, b = m, x % m
+    u0, u1 = 0, 1
+
+    while b != 0:
+        q = a // b
+        a, b = b, a - q * b
+        u0, u1 = u1, u0 - q * u1
+
+    return u0 % m
 
 def point_add(P: tuple, Q: tuple) :
     if P is None: return Q
