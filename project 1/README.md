@@ -19,6 +19,7 @@ AES-NI指令通过S盒加速和并行处理优化算法。
 
 ## 使用方法
 确认CPU支持AES-NI可以输入下面指令，若输出包含aes则支持。
+
 ` grep -m1 -o 'aes' /proc/cpuinfo`
 
 编译table优化版本，在终端中输入命令：
