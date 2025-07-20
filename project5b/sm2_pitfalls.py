@@ -75,9 +75,6 @@ def reuse_k_two_user():
 #forge signature if the verification does not check message is implemented in project5c
 #malleability attack is not feasible  as it is in ECDSA
 def same_d_k_with_ecdsa():
-    """
-    演示在 SM2 和 ECDSA 中使用相同的 d 和 k 导致私钥泄露的安全缺陷
-    """
     print("===开始SM2与ECDSA相同d,k攻击===")
     key = 0x12345678901234567890123456789012345678901234567890123456789012
     message = b"Cross-algorithm message"
