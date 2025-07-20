@@ -1,4 +1,4 @@
-from sm2 import sm2_sign, sm2_verify, scalar_mult, point_add, inv_mod, n,sm3_hash,G
+from sm2 import sm2_sign, scalar_mult, inv_mod, n, sm3_hash, G
 from struct import pack
 import hashlib
 def calculate_signature(message, key, k):
