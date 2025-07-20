@@ -1,6 +1,6 @@
 from sm2 import sm2_sign, sm2_verify, scalar_mult, point_add, inv_mod, n,sm3_hash,G
 from struct import pack
-
+import hashlib
 def calculate_signature(message, key, k):
     """a flawed implementation of SM2 signature using a fixed k value"""
     ENTL = len(b'ALICE123@YH') * 8
@@ -73,18 +73,29 @@ def reuse_k_two_user():
 
 
 #forge signature if the verification does not check message is implemented in project5c
-def  malleability_attack():
-    """
-    This function is a placeholder for the malleability attack.
-    In a real scenario, s and -s are both valid signatures .
-    """
-    pass
+#malleability attack is not feasible  as it is in ECDSA
 def same_d_k_with_ecdsa():
     """
-    this function is a placeholder for the same d k with ecdsa pitfall. 
-    In a real scenario, attacker would leverage the same d and k used in ECDSA to leak d.
+    演示在 SM2 和 ECDSA 中使用相同的 d 和 k 导致私钥泄露的安全缺陷
     """
-    pass
+    print("===开始SM2与ECDSA相同d,k攻击===")
+    key = 0x12345678901234567890123456789012345678901234567890123456789012
+    message = b"Cross-algorithm message"
+    same_k = 0xabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefab
+    x, y = scalar_mult(same_k, G)
+    e1 = int.from_bytes(hashlib.sha256(message).digest(), 'big') % n
+    r1 = x % n
+    s1 = ((e1 + r1 * key) * inv_mod(same_k, n)) % n
+    r2, s2, e2 = calculate_signature(message, key, same_k)
+    numerator = (s1 * s2 - e1) % n
+    denominator = (r1 - s1 * s2 - s1 * r2) % n
+    recovered_key = (numerator * inv_mod(denominator, n)) % n
+    print(f"受害者的私钥: {key}")
+    print(f"算出来的私钥: {recovered_key}")
+    if recovered_key == key:
+        print("相同d,k攻击成功 ")
+    else:
+        print("相同d,k攻击失败")
 
 leak_k()
 reuse_k()
