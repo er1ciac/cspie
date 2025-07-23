@@ -35,7 +35,7 @@
 - **语言：** Python
 - **内容：** SM2签名算法实现、签名安全漏洞POC验证、ECDSA分析
 
-### Project 6: Google Password Checkup协议实现
+### Project 6: 安全计算协议实现
 - **目录：** `project6/`
 - **语言：** Python
-- **内容：** 基于论文实现的隐私保护密码检查协议
+- **内容：** 基于论文实现隐私保护协议
