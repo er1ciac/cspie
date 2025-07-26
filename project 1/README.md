@@ -20,9 +20,13 @@ SM4-GCM 是 SM4 算法与 GCM 认证加密模式的结合，当使用 SM4-GCM �
 - `sm4_gcm.cpp`: SM4 gcm实现
 
 ## 使用方法
-确认CPU支持AES-NI可以输入下面指令，若输出包含aes则支持。
+确认CPU支持AES-NI可以输入下面指令，若输出包含aes则支持，例如：
 
-` grep -m1 -o 'aes' /proc/cpuinfo`
+```bash
+grep -m1 -o 'aes' /proc/cpuinfo  
+aes
+aes
+```
 
 编译table优化版本，在终端中输入命令：
 
