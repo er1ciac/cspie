@@ -55,7 +55,7 @@ project4/
 
 ### 编译
 
-编译SIMD优化版本：
+编译SIMD优化版本，别忘了加入flag  -mssse3 ：
 ```bash
 g++ -mssse3 sm3_simd.cpp main.cpp -o sm3_simd
 ```
