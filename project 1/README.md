@@ -32,7 +32,7 @@ aes
 
 ` g++ main.cpp sm4_table.cpp  -o sm4 `
 
-编译AESNI优化版本，在终端中输入命令：
+编译AESNI优化版本，在终端中输入命令，注意要带上-mssse3 flag：
 
 ` g++ -mssse3 sm4_aesni.cpp main.cpp -o sm4_aesni `
 
@@ -45,7 +45,7 @@ aes
 ` g++ main.cpp sm4_noop.cpp  -o sm4_noop `
 
 ## 运行结果
-以下是SM4算法的执行结果，发现在同时执行1000次加密的时候，查表法比普通版本快，而aesni比前者都快，同时gcm验证也成功：
+以下是SM4算法的执行结果，发现在同时执行1000次加密的时候，查表法比普通版本快，而aesni比前二者都快，同时发现gcm模式的验证也可以成功：
 
 ![SM4查找表](./res.png)
 
