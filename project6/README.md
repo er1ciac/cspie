@@ -1,10 +1,12 @@
 # DDH-based Private Intersection-Sum Protocol实现
 
+本实验复现了“OnDeploying Secure Computing: Private Intersection-Sum-with-Cardinality”论文中的一个DDH-based Private Intersection-Sum Protocol。
+
 ## 协议简介
 DDH-based Private Intersection-Sum Protocol是一个基于椭圆曲线上判定性Diffie-Hellman假设的安全多方计算协议，允许两方在不泄露各自私有集合内容的情况下计算内容。
 
 ## 依赖项安装
-``` 
+``` bash
 pip install phe
 pip install ecdsa
 ```
