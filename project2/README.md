@@ -22,7 +22,7 @@
 
 - `insert.cpp`: 水印嵌入程序
 - `extract.cpp`: 水印提取程序
-- `project2.png`: 原始载体图像
+- `project2.png`: 从网上下载的图像，将水印加在他上面
 - `watermarked.png`: 嵌入水印后的图像
 
 ## 如何运行
