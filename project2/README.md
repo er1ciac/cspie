@@ -40,4 +40,5 @@ g++ -std=c++11 -o  extract  extract.cpp `pkg-config --cflags --libs opencv4`
  g++ -std=c++11 -o insert insert.cpp `pkg-config --cflags --libs opencv4`
 ```
 ## 结果
+结果可以看到，水印被成功的嵌入和提取，同时观察watermarked.png可以发现，嵌入水印后的图片没什么区别。
 ![水印](./res.png)
