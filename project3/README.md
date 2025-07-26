@@ -112,7 +112,7 @@ snarkjs groth16 verify verification_key.json public.json proof.json
 ```
 
 ## 运行结果
-下面是成功运行的结果截图，最后输出"OK"说明零知识证明验证成功：
+下面是成功运行的结果截图，不难看出，运行到最后输出了"OK"说明零知识证明验证成功：
 
 ![第一部分运行结果](./l1.png)
 
